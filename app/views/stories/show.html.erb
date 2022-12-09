@@ -1,0 +1,161 @@
+<div>
+  <div>
+    <h1>
+      Story #<%= @the_story.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/stories">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_story/<%= @the_story.id %>">
+          Delete story
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Caption
+      </dt>
+      <dd>
+        <%= @the_story.caption %>
+      </dd>
+
+      <dt>
+        Story
+      </dt>
+      <dd>
+        <%= @the_story.story %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @the_story.owner_id %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_story.location %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_story.image %>
+      </dd>
+
+      <dt>
+        Likes count
+      </dt>
+      <dd>
+        <%= @the_story.likes_count %>
+      </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_story.comments_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_story.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit story
+    </h2>
+
+    <form action="/modify_story/<%= @the_story.id %>"  method="post" >
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <input type="text" id="caption_box" name="query_caption" value="<%= @the_story.caption %>">
+      </div>
+
+      <div>
+        <label for="story_box">
+          Story
+        </label>
+
+        <textarea id="story_box" name="query_story"><%= @the_story.story %></textarea>
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_story.owner_id %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_story.location %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_story.image %>">
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_story.likes_count %>">
+      </div>
+
+      <div>
+        <label for="comments_count_box">
+          Comments count
+        </label>
+
+        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_story.comments_count %>">
+      </div>
+
+      <button>
+        Update story
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
